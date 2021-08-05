@@ -6,7 +6,7 @@ class Department(models.Model):
         verbose_name = "Departamento"
         verbose_name_plural = "Departamentos"
 
-    name = models.CharField(max_length=70)
+    name = models.CharField(max_length=70, verbose_name="Nome")
 
     def __str__(self) -> str:
         return self.name
