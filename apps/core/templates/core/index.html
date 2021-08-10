@@ -4,9 +4,22 @@
 {% block main %}
 <div class="grid grid-cols-3 gap-4 text-center my-3">
     <div>1</div>
-    <div>9</div>
+    <div>Olá, {{ user.employee.name }}</div>
     <div>
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="{% url 'logout' %}">Sair</a>
+        {% if user.employee.company %}
+          <a 
+            href="{% url 'edit_company' user.employee.company.id %}" 
+            class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+            Editar Empresa
+          </a>
+        {% else %}
+          <a 
+            href="{% url 'create_company' %}" 
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Criar empresa
+          </a>
+        {% endif %}
     </div>
   </div>
 {% endblock main %}
